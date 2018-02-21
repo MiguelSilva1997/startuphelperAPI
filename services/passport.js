@@ -6,8 +6,14 @@ var pry = require('pryjs');
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
-  }
-)
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id)
+    .then(user => {
+      done(null, user.rows[0]);
+    })
+})
 
 
 passport.use(
@@ -20,7 +26,7 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
       User.findByUid(profile.id).then(currentUser => {
         if (currentUser.rows[0]) {
-          done(null, currentUser);
+          done(null, currentUser.rows[0]);
         } else {
           User.addUser(
             profile.id,

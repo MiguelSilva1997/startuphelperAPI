@@ -22,9 +22,13 @@ class User {
     return database.raw(
       "SELECT * FROM users WHERE uid = (?)", [id]
     )
-
   }
 
+  static findById(id){
+    return database.raw(
+        "SELECT * FROM users WHERE id = (?)", [id]
+      )
+  }
 }
 
 module.exports = User;
