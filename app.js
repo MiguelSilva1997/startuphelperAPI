@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const passport = require('passport')
 const cookieSession = require('cookie-session')
-const keys = require('./config/keys');
+// const keys = require('./config/keys');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
