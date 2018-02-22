@@ -21,7 +21,8 @@ passport.use(
     {
       clientID: process.env.googleClientID,
       clientSecret: process.env.googleClientSecret,
-      callbackURL: '/auth/google/callback'
+      callbackURL: '/auth/google/callback',
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findByUid(profile.id).then(currentUser => {
