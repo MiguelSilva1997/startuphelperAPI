@@ -16,12 +16,12 @@ var google_oauth = require('./routes/google_oauth')
 var app = express();
 
 //passport
-// app.use(
-//   cookieSession({
-//     maxAge: 30 * 24 * 60 * 60 * 1000,
-//     keys: [keys.cookieKey]
-//   })
-// );
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 // view engine setup
