@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth/google', google_oauth);
 app.use('/api/v1', current_user);
 
-if (process.env.NODE === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   const path = require('path')
