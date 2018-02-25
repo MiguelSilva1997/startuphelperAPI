@@ -21,25 +21,22 @@ passport.use(
     {
       clientID: process.env.googleClientID,
       clientSecret: process.env.googleClientSecret,
+      // clientID: keys.googleClientID,
+      // clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findByUid(profile.id).then(currentUser => {
+    async (accessToken, refreshToken, profile, done) => {
+      const currentUser = await User.findByUid(profile.id)
         if (currentUser.rows[0]) {
-          done(null, currentUser.rows[0]);
-        } else {
-          User.addUser(
-            profile.id,
-            profile.name.givenName,
-            profile.name.familyName,
-            profile.emails[0].value
-          ).then(currentUser => {
-            done(null, currentUser.rows[0])
-          })
-
+          return done(null, currentUser.rows[0]);
         }
-      })
-    }
-  )
+        const user = await User.addUser(
+          profile.id,
+          profile.name.givenName,
+          profile.name.familyName,
+          profile.emails[0].value
+        )
+          done(null, currentUser.rows[0])
+    })
 );

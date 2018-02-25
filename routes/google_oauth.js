@@ -8,7 +8,13 @@ router.get('/', passport.authenticate('google', {
   })
 );
 
-router.get('/callback', passport.authenticate('google'));
+router.get(
+  '/callback',
+  passport.authenticate('google'),
+  (req, res) => {
+    res.redirect('/profile')
+  }
+);
 
 
 
