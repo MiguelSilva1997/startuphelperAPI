@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const passport = require('passport')
 const cookieSession = require('cookie-session')
-// const keys = require('./config/keys');
+const keys = require('./config/keys');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -19,8 +19,8 @@ var app = express();
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [process.env.cookieKey]
-    // keys: [keys.cookieKey]
+    // keys: [process.env.cookieKey]
+    keys: [keys.cookieKey]
   })
 );
 app.use(passport.initialize());
