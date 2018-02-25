@@ -6,8 +6,7 @@ import * as actions from '../actions'
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
-// const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>hey</h2>;
+import GameNew from './games/GameNew';
 
 
 class App extends Component {
@@ -23,7 +22,7 @@ class App extends Component {
             <Header />
             <Route exact path='/' component={Landing} />
             <Route exact path='/profile' component={Dashboard} />
-            <Route path='/surveys/new' component={SurveyNew} />
+            <Route path='/game/new' component={GameNew} />
           </div>
         </BrowserRouter>
       </div>

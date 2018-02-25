@@ -17,11 +17,18 @@ class Header extends Component {
         );
       default:
         return (
-          <li>
-            <a href="/api/v1/logout">
-              Logout
-            </a>
-          </li>
+          <ul>
+            <li>
+              <a href="/game/new">
+                New Game
+              </a>
+            </li>
+            <li>
+              <a href="/api/v1/logout">
+                Logout
+              </a>
+            </li>
+          </ul>
         );
     }
   }
