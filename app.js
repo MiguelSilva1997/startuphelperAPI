@@ -42,6 +42,18 @@ app.use('/users', users);
 app.use('/auth/google', google_oauth);
 app.use('/api/v1', current_user);
 
+if (process.env.NODE === 'production') {
+  app.use(express.static('client/build'));
+
+  const path = require('path')
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  }); 
+
+}
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
