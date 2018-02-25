@@ -8,8 +8,6 @@ const passport = require('passport')
 const cookieSession = require('cookie-session')
 // const keys = require('./config/keys');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
 var current_user = require('./routes/current_user')
 var google_oauth = require('./routes/google_oauth')
 
@@ -37,8 +35,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
 app.use('/auth/google', google_oauth);
 app.use('/api/v1', current_user);
 
