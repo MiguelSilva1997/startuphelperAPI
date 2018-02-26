@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GameForm from './GameForm'
 import { Redirect } from 'react-router'
+import { connect } from 'react-redux';
+import GameApi from '../utils/teamApi'
 
 class GameNew  extends Component {
   constructor () {
@@ -17,7 +19,7 @@ class GameNew  extends Component {
     const showResults = values => {
       this.setState({ fireRedirect: true })
       new Promise(resolve => {
-        console.log(values)
+        GameApi.postGame(values, this.props.auth.uid)
         resolve()
       })
     }
@@ -33,4 +35,8 @@ class GameNew  extends Component {
 
 }
 
-export default GameNew;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(GameNew);

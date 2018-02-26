@@ -10,41 +10,24 @@ const GameFormSecondPage = props => {
   const { handleSubmit, previousPage } = props
   return (
     <form onSubmit={handleSubmit}>
+      <h4>
       <Field name="email" type="email" component={gameField} label="Email" />
-      <div>
-        <label>Sex</label>
         <div>
-          <h1>
-            <label>
-              <Field
-                name="sex"
-                component="input"
-                type="radio"
-                value="male"
-              />{' '}
-              Male
-            </label>
-            <label>
-              <Field
-                name="sex"
-                component="input"
-                type="radio"
-                value="female"
-              />{' '}
-              Female
-            </label>
-          </h1>
-          <Field name="sex" component={renderError} />
+          <label> Game Size </label>
+          <div>
+            <Field name="size" type="number" component={gameField}/>
+          </div>
         </div>
-      </div>
+      <br></br>
       <div>
-        <button type="button" className="previous" onClick={previousPage}>
+        <button type="button" className="previous deep-orange lighten-5 darken-1 btn-flat left white text" onClick={previousPage}>
           Previous
         </button>
-        <button type="submit" className="next">
+        <button type="submit" className="next teal darken-1 btn-flat right white text">
           Next
         </button>
       </div>
+    </h4>
     </form>
   )
 }

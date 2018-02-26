@@ -19,6 +19,11 @@ class Header extends Component {
         return (
           <ul>
             <li>
+              <a href="/games">
+                All Games
+              </a>
+            </li>
+            <li>
               <a href="/game/new">
                 New Game
               </a>

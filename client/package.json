@@ -4,10 +4,10 @@
   "private": true,
   "proxy": {
     "/auth/google": {
-      "target": "https://startuphelperapi.herokuapp.com"
+      "target": "http://localhost:5000"
     },
     "/api/v1/*": {
-      "target": "https://startuphelperapi.herokuapp.com"
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
+    "redux-form-website-template": "0.0.103",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {

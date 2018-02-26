@@ -1,22 +1,27 @@
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
 import validate from './validate'
+import gameField from './gameField'
 
 const GameFormThirdPage = props => {
   const { handleSubmit, pristine, previousPage, submitting } = props
   return (
     <form onSubmit={handleSubmit}>
-
       <div>
-        <label htmlFor="employed">Employed</label>
+        <h4>
+        <label> Date </label>
         <div>
-          <Field
-            name="employed"
-            id="employed"
-            component="input"
-            type="checkbox"
-          />
+          <Field name="date" type="date" component={gameField}/>
         </div>
+        </h4>
+      </div>
+      <div>
+        <h4>
+        <label> Start Time </label>
+        <div>
+          <Field name="time" type="time" component={gameField}/>
+        </div>
+        </h4>
       </div>
       <div>
         <label>Notes</label>
@@ -25,10 +30,10 @@ const GameFormThirdPage = props => {
         </div>
       </div>
       <div>
-        <button type="button" className="previous" onClick={previousPage}>
+        <button type="button" className="previous deep-orange lighten-5 darken-1 btn-flat left white text" onClick={previousPage}>
           Previous
         </button>
-        <button type="submit" disabled={pristine || submitting}>
+        <button className="teal darken-1 btn-flat right white text" type="submit" disabled={pristine || submitting}>
           Submit
         </button>
       </div>

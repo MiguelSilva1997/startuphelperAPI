@@ -7,23 +7,25 @@ const GameFormFirstPage = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
+      <h4>
       <Field
-        name="firstName"
+        name="firstname"
         type="text"
         component={gameField}
         label="First Name"
       />
       <Field
-        name="lastName"
+        name="lastname"
         type="text"
         component={gameField}
         label="Last Name"
       />
       <div>
-        <button type="submit" className="next">
+        <button type="submit" className="next teal darken-1 btn-flat right white text">
           Next
         </button>
       </div>
+      </h4>
     </form>
   )
 }
