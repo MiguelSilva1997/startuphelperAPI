@@ -1,6 +1,5 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-// const keys = require('../config/keys')
 const User = require('../models/users')
 var pry = require('pryjs');
 
@@ -21,8 +20,6 @@ passport.use(
     {
       clientID: process.env.googleClientID,
       clientSecret: process.env.googleClientSecret,
-      // clientID: keys.googleClientID,
-      // clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
       proxy: true
     },
