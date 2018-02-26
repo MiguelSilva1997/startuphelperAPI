@@ -4,10 +4,10 @@
   "private": true,
   "proxy": {
     "/auth/google": {
-      "target": "http://localhost:5000"
+      "target": "https://startuphelperapi.herokuapp.com"
     },
     "/api/v1/*": {
-      "target": "http://localhost:5000"
+      "target": "https://startuphelperapi.herokuapp.com"
     }
   },
   "dependencies": {
